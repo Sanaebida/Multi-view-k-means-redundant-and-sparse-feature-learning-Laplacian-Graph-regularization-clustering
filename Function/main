@@ -1,1 +1,29 @@
+import numpy as np
 
+def optimize_matrices(X, F, G, W, max_iters, learning_rate, beta, alpha):
+    # Unpack initial conditions
+    updatedW = []
+    updatedG = []
+
+    for _ in range(max_iters):
+        for k in range(len(W)):
+            # Update Wk
+            wk = updateW(k, W, learning_rate, max_iters, convergence_criteria=None)
+            updatedW.append(wk)
+
+            # Update Gk
+            gk = updateG(k, G, W, gradian_G, learning_rate, max_iters, convergence_criteria=None)
+            updatedG.append(gk)
+
+        # Update F (outside the loop over k, since F is a single matrix)
+        F = update_F(W, X, G, F, Q, alpha, 1, learning_rate)
+
+    # Convert updatedW and updatedG to numpy arrays for consistency (optional)
+    updatedW = np.array(updatedW)
+    updatedG = np.array(updatedG)
+
+    return updatedW, updatedG, F
+
+# Ensure to define or import the update_Wk, update_G, and update_F functions
+# as well as the gradian_f, alpha, eta, and any other necessary variables.
+ W_, G_, F_ = optimize_matrices(X, F, G, W, 10, 0.1, 1, alpha)
