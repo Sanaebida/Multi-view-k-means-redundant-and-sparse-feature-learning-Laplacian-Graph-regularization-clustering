@@ -1,1 +1,2 @@
 # Multi-view-k-means-redundant-and-sparse-feature-learning-Laplacian-Graph-regularization-clustering
+This project implements a multi-view K-means clustering algorithm that incorporates redundant and sparse feature learning with Laplacian graph regularization. This approach aims to enhance clustering performance by leveraging multiple data views, feature redundancy, sparsity, and graph regularization techniques.
